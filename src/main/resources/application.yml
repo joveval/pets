@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://profile_db:5432/brainy_profile
+    username: ${PETBUDDY_DB_USER}
+    password: ${PETBUDDY_DB_PASSWORD}
+  jpa:
+    show-sql: true
+    format_sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  jackson:
+      serialization.fail-on-empty-beans: false
+
+logging:
+  level:
+    org.springframework.security: INFO
+    org.springframework.web: INFO
+
+brainy:
+  outlook:
+    clientId: <generate your own client id on https://apps.dev.microsoft.com/#/appList>
+    domainInfoUri: https://graph.microsoft.com/v1.0
+  skillBackend:
+    protocol: http://
+    # TODO Use the container's name instead of the ip address
+    domain: skill
+    skillPort: 8080
+    skillPath: /skill/
+    skillByIdPath: /skill/id/
+  numberMostEndorsedSkills: 5

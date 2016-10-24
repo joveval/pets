@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/petapp.iml" filepath="$PROJECT_DIR$/.idea/modules/petapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/petapp_intTest.iml" filepath="$PROJECT_DIR$/.idea/modules/petapp_intTest.iml" group="petapp" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/petapp_main.iml" filepath="$PROJECT_DIR$/.idea/modules/petapp_main.iml" group="petapp" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/petapp_test.iml" filepath="$PROJECT_DIR$/.idea/modules/petapp_test.iml" group="petapp" />
+    </modules>
+  </component>
+</project>
