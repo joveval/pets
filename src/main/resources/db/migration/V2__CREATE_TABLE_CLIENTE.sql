@@ -1,4 +1,5 @@
 CREATE TABLE CLIENTE (
 	id_cliente INTEGER NOT NULL PRIMARY KEY,
-    password varchar(500)
+    password varchar(500),
+    ID_PERSONA INTEGER NOT NULL REFERENCES PERSONA(ID_PERSONA)
 );
