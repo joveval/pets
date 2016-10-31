@@ -1,5 +1,6 @@
 package com.petbuddy.petapp.dao;
 
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.Repository;
 
@@ -12,12 +13,8 @@ import java.util.Optional;
  */
 
 @NoRepositoryBean
-public interface BaseRepository<T, ID extends Serializable> extends Repository<T, ID> {
+public interface BaseRepository<T, ID extends Serializable> extends CrudRepository<T, ID> {
     void delete(T deleted);
 
     List<T> findAll();
-
-    List<T> findOne(ID id);
-
-    T save(T persisted);
 }

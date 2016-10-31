@@ -1,8 +1,6 @@
 package com.petbuddy.petapp.controller.util;
 
 import org.apache.commons.codec.binary.Base64;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.expression.ParseException;

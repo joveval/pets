@@ -6,5 +6,6 @@ package com.petbuddy.petapp.util;
 public class Constant {
 
     public static final String REST_SERVICIO_GET_ALL = "/servicio/getAll";
+    public static final String REST_SERVICIO_SAVE = "/servicio/save";
 
 }

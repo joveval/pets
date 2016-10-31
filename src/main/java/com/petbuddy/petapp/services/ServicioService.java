@@ -2,6 +2,8 @@ package com.petbuddy.petapp.services;
 
 import com.petbuddy.petapp.dao.ServicioDAO;
 import com.petbuddy.petapp.model.Servicio;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,8 +14,10 @@ import java.util.List;
  */
 
 @Service
+@Transactional(readOnly = true)
 public class ServicioService {
 
+    @Autowired
     private ServicioDAO servicioDAO;
 
     @Transactional
@@ -22,6 +26,8 @@ public class ServicioService {
     }
 
     public List<Servicio> getAll() {
-        return servicioDAO.findAll();
+        List<Servicio> servicioList = servicioDAO.findAll();
+
+        return servicioList;
     }
 }

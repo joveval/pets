@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ruleset name="Custom ruleset"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0
+         http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+
+    <description>Set of rules customized for Brainy</description>
+
+    <rule ref="rulesets/java/basic.xml"/>
+    <rule ref="rulesets/java/braces.xml"/>
+    <rule ref="rulesets/java/clone.xml"/>
+    <rule ref="rulesets/java/codesize.xml"/>
+    <rule ref="rulesets/java/coupling.xml"/>
+    <rule ref="rulesets/java/empty.xml"/>
+    <rule ref="rulesets/java/finalizers.xml"/>
+    <rule ref="rulesets/java/imports.xml"/>
+    <rule ref="rulesets/java/migrating.xml"/>
+    <rule ref="rulesets/java/strictexception.xml"/>
+    <rule ref="rulesets/java/strings.xml"/>
+    <rule ref="rulesets/java/typeresolution.xml"/>
+    <rule ref="rulesets/java/unnecessary.xml"/>
+    <rule ref="rulesets/java/unusedcode.xml"/>
+
+    <rule ref="rulesets/java/design.xml">
+        <!-- extra final modifier does not make code more secure in that cases-->
+        <exclude name="ImmutableField"/>
+        <exclude name="UncommentedEmptyConstructor"/>
+        <exclude name="AvoidConstantsInterface"/>
+    </rule>
+    <rule ref="rulesets/java/naming.xml">
+        <exclude name="LongVariable"/>
+        <exclude name="ShortVariable"/>
+        <exclude name="AbstractNaming"/>
+        <exclude name="AvoidFieldNameMatchingTypeName"/>
+    </rule>
+    <rule ref="rulesets/java/optimizations.xml">
+        <!--produces more false-positives than real problems-->
+        <exclude name="AvoidInstantiatingObjectsInLoops"/>
+        <!--pollutes code with modifiers-->
+        <exclude name="LocalVariableCouldBeFinal"/>
+        <!--pollutes code with modifiers-->
+        <exclude name="MethodArgumentCouldBeFinal"/>
+        <!--not configurable, decreases readability-->
+        <exclude name="UseStringBufferForStringAppends"/>
+    </rule>
+    <rule ref="rulesets/java/controversial.xml">
+        <exclude name="AtLeastOneConstructor"/>
+    </rule>
+    <rule ref="rulesets/java/junit.xml">
+        <exclude name="TestClassWithoutTestCases"/>
+        <exclude name="JUnitTestsShouldIncludeAssert"/>
+    </rule>
+
+</ruleset>

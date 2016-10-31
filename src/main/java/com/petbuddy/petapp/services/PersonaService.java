@@ -2,6 +2,8 @@ package com.petbuddy.petapp.services;
 
 import com.petbuddy.petapp.dao.PersonaDAO;
 import com.petbuddy.petapp.model.Persona;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class PersonaService {
+
+    @Autowired
     PersonaDAO personaDAO;
 
     @Transactional
