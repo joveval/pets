@@ -1,14 +1,14 @@
 spring:
   datasource:
-    url: jdbc:postgresql://192.168.99.100:5432/brainy_profile
-    username: test
-    password: test
+    url: jdbc:mysql://localhost/petbuddy
+    username: root
+    password: 
   jpa:
     show-sql: true
     format_sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.MySQLDialect
   jackson:
       serialization.fail-on-empty-beans: false
 
@@ -37,7 +37,7 @@ petapp:
   skillBackend:
     protocol: http://
     # TODO Use the container's name instead of the ip address
-    domain: servicio
+    domain: localhost
     skillPort: 8080
     skillPath: /servicio/
     skillByIdPath: /servicio/getAll/
