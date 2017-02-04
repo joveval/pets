@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-feb-2017 2:04:24 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.petbuddy.petapp.model.TipoMascota" table="tipo_mascota" catalog="petbuddy" optimistic-lock="version">
+        <id name="idTipoMascota" type="java.lang.Integer">
+            <column name="ID_TIPO_MASCOTA" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="raza" class="com.petbuddy.petapp.model.Raza" fetch="select">
+            <column name="ID_RAZA" not-null="true" />
+        </many-to-one>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="500" />
+        </property>
+        <set name="mascotas" table="mascota" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TIPO_MASCOTA" not-null="true" />
+            </key>
+            <one-to-many class="com.petbuddy.petapp.model.Mascota" />
+        </set>
+    </class>
+</hibernate-mapping>

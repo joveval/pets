@@ -8,6 +8,6 @@ import java.util.List;
 /**
  * @author Diego Mansilla on 10/25/2016.
  */
-public interface PersonaDAO extends BaseRepository<Persona, Long> {
+public interface PersonaDAO extends BaseRepository<Persona, Integer> {
 
 }

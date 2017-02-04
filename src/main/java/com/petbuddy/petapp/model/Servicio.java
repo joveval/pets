@@ -24,7 +24,6 @@ public class Servicio implements java.io.Serializable {
 	private String descripcion;
 	private Double coordX;
 	private Double coordY;
-	private Set<RelVeterinarioServicio> relVeterinarioServicios = new HashSet<RelVeterinarioServicio>(0);
 
 	public Servicio() {
 	}
@@ -33,13 +32,13 @@ public class Servicio implements java.io.Serializable {
 		this.idTipoServicio = idTipoServicio;
 	}
 
-	public Servicio(int idTipoServicio, String descripcion, Double coordX, Double coordY,
-			Set<RelVeterinarioServicio> relVeterinarioServicios) {
+
+	public Servicio(Integer idServicio, int idTipoServicio, String descripcion, Double coordX, Double coordY) {
+		this.idServicio = idServicio;
 		this.idTipoServicio = idTipoServicio;
 		this.descripcion = descripcion;
 		this.coordX = coordX;
 		this.coordY = coordY;
-		this.relVeterinarioServicios = relVeterinarioServicios;
 	}
 
 	@Id
@@ -88,15 +87,6 @@ public class Servicio implements java.io.Serializable {
 
 	public void setCoordY(Double coordY) {
 		this.coordY = coordY;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "servicio")
-	public Set<RelVeterinarioServicio> getRelVeterinarioServicios() {
-		return this.relVeterinarioServicios;
-	}
-
-	public void setRelVeterinarioServicios(Set<RelVeterinarioServicio> relVeterinarioServicios) {
-		this.relVeterinarioServicios = relVeterinarioServicios;
 	}
 
 }

@@ -21,15 +21,18 @@ public class Raza implements java.io.Serializable {
 
 	private Integer idRaza;
 	private String descripcion;
-	private Set<TipoMascota> tipoMascotas = new HashSet<TipoMascota>(0);
 
 	public Raza() {
 	}
 
-	public Raza(String descripcion, Set<TipoMascota> tipoMascotas) {
+	
+
+	public Raza(Integer idRaza, String descripcion) {
+		this.idRaza = idRaza;
 		this.descripcion = descripcion;
-		this.tipoMascotas = tipoMascotas;
 	}
+
+
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -52,13 +55,5 @@ public class Raza implements java.io.Serializable {
 		this.descripcion = descripcion;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "raza")
-	public Set<TipoMascota> getTipoMascotas() {
-		return this.tipoMascotas;
-	}
-
-	public void setTipoMascotas(Set<TipoMascota> tipoMascotas) {
-		this.tipoMascotas = tipoMascotas;
-	}
 
 }

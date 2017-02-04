@@ -24,7 +24,6 @@ public class Veterinario implements java.io.Serializable {
 	private Integer idVeterinario;
 	private Persona persona;
 	private Boolean colegiado;
-	private Set<RelVeterinarioServicio> relVeterinarioServicios = new HashSet<RelVeterinarioServicio>(0);
 
 	public Veterinario() {
 	}
@@ -33,10 +32,10 @@ public class Veterinario implements java.io.Serializable {
 		this.persona = persona;
 	}
 
-	public Veterinario(Persona persona, Boolean colegiado, Set<RelVeterinarioServicio> relVeterinarioServicios) {
+	public Veterinario(Integer idVeterinario, Persona persona, Boolean colegiado) {
+		this.idVeterinario = idVeterinario;
 		this.persona = persona;
 		this.colegiado = colegiado;
-		this.relVeterinarioServicios = relVeterinarioServicios;
 	}
 
 	@Id
@@ -70,13 +69,5 @@ public class Veterinario implements java.io.Serializable {
 		this.colegiado = colegiado;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "veterinario")
-	public Set<RelVeterinarioServicio> getRelVeterinarioServicios() {
-		return this.relVeterinarioServicios;
-	}
-
-	public void setRelVeterinarioServicios(Set<RelVeterinarioServicio> relVeterinarioServicios) {
-		this.relVeterinarioServicios = relVeterinarioServicios;
-	}
 
 }

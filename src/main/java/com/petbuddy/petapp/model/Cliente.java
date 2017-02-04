@@ -25,8 +25,7 @@ public class Cliente implements java.io.Serializable {
 	private Integer idCliente;
 	private Persona persona;
 	private String password;
-	private Set<RelClienteMascota> relClienteMascotas = new HashSet<RelClienteMascota>(0);
-
+	
 	public Cliente() {
 	}
 
@@ -34,10 +33,12 @@ public class Cliente implements java.io.Serializable {
 		this.persona = persona;
 	}
 
-	public Cliente(Persona persona, String password, Set<RelClienteMascota> relClienteMascotas) {
+	
+
+	public Cliente(Integer idCliente, Persona persona, String password) {
+		this.idCliente = idCliente;
 		this.persona = persona;
 		this.password = password;
-		this.relClienteMascotas = relClienteMascotas;
 	}
 
 	@Id
@@ -71,13 +72,5 @@ public class Cliente implements java.io.Serializable {
 		this.password = password;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
-	public Set<RelClienteMascota> getRelClienteMascotas() {
-		return this.relClienteMascotas;
-	}
-
-	public void setRelClienteMascotas(Set<RelClienteMascota> relClienteMascotas) {
-		this.relClienteMascotas = relClienteMascotas;
-	}
 
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-feb-2017 2:04:24 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.petbuddy.petapp.model.ExpedienteMedico" table="expediente_medico" catalog="petbuddy" optimistic-lock="version">
+        <id name="idExpediente" type="java.lang.Integer">
+            <column name="ID_EXPEDIENTE" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="mascota" class="com.petbuddy.petapp.model.Mascota" fetch="select">
+            <column name="ID_MASCOTA" not-null="true" />
+        </many-to-one>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="500" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="FECHA" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

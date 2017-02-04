@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-feb-2017 2:04:24 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.petbuddy.petapp.model.Persona" table="persona" catalog="petbuddy" optimistic-lock="version">
+        <id name="idPersona" type="java.lang.Integer">
+            <column name="ID_PERSONA" />
+            <generator class="identity" />
+        </id>
+        <property name="nombres" type="string">
+            <column name="NOMBRES" length="50" />
+        </property>
+        <property name="apPaterno" type="string">
+            <column name="AP_PATERNO" length="50" />
+        </property>
+        <property name="apMaterno" type="string">
+            <column name="AP_MATERNO" length="50" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="50" />
+        </property>
+        <set name="veterinarios" table="veterinario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PERSONA" not-null="true" />
+            </key>
+            <one-to-many class="com.petbuddy.petapp.model.Veterinario" />
+        </set>
+        <set name="clientes" table="cliente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PERSONA" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="com.petbuddy.petapp.model.Cliente" />
+        </set>
+        <set name="direccions" table="direccion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PERSONA" not-null="true" />
+            </key>
+            <one-to-many class="com.petbuddy.petapp.model.Direccion" />
+        </set>
+    </class>
+</hibernate-mapping>
