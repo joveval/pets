@@ -7,7 +7,7 @@ public class Constant {
 
     public static final String REST_SERVICIO_GET_ALL = "/servicio/getall";
     public static final String REST_SERVICIO_SAVE = "/servicio/save";
-    public static final String REST_SERVICIO_DELETE = "/direccion/delete ";
+    public static final String REST_SERVICIO_DELETE = "/servicio/delete ";
     
     public static final String REST_DIRECCION_GET_ALL = "/direccion/getall";
     public static final String REST_DIRECCION_SAVE = "/direccion/save";
