@@ -21,13 +21,16 @@ public class ServicioService {
     private ServicioDAO servicioDAO;
 
     @Transactional
-    public Servicio saveServicio(Servicio servicio) {
+    public Servicio save(Servicio servicio) {
         return servicioDAO.save(servicio);
     }
 
     public List<Servicio> getAll() {
-        List<Servicio> servicioList = servicioDAO.findAll();
-
+        List<Servicio> servicioList = (List<Servicio>) servicioDAO.findAll();
         return servicioList;
+    }
+    
+    public void remove(Servicio servicio){
+    	servicioDAO.delete(servicio);
     }
 }

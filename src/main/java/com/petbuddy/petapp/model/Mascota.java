@@ -28,8 +28,6 @@ public class Mascota implements java.io.Serializable {
 	private TipoMascota tipoMascota;
 	private Character sexo;
 	private Date birthday;
-	private Set<ExpedienteMedico> expedienteMedicos = new HashSet<ExpedienteMedico>(0);
-	private Set<RelClienteMascota> relClienteMascotas = new HashSet<RelClienteMascota>(0);
 
 	public Mascota() {
 	}
@@ -38,13 +36,13 @@ public class Mascota implements java.io.Serializable {
 		this.tipoMascota = tipoMascota;
 	}
 
-	public Mascota(TipoMascota tipoMascota, Character sexo, Date birthday, Set<ExpedienteMedico> expedienteMedicos,
-			Set<RelClienteMascota> relClienteMascotas) {
+	
+
+	public Mascota(Integer idMascota, TipoMascota tipoMascota, Character sexo, Date birthday) {
+		this.idMascota = idMascota;
 		this.tipoMascota = tipoMascota;
 		this.sexo = sexo;
 		this.birthday = birthday;
-		this.expedienteMedicos = expedienteMedicos;
-		this.relClienteMascotas = relClienteMascotas;
 	}
 
 	@Id
@@ -87,23 +85,4 @@ public class Mascota implements java.io.Serializable {
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mascota")
-	public Set<ExpedienteMedico> getExpedienteMedicos() {
-		return this.expedienteMedicos;
-	}
-
-	public void setExpedienteMedicos(Set<ExpedienteMedico> expedienteMedicos) {
-		this.expedienteMedicos = expedienteMedicos;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mascota")
-	public Set<RelClienteMascota> getRelClienteMascotas() {
-		return this.relClienteMascotas;
-	}
-
-	public void setRelClienteMascotas(Set<RelClienteMascota> relClienteMascotas) {
-		this.relClienteMascotas = relClienteMascotas;
-	}
-
 }

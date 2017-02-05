@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-feb-2017 2:04:24 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.petbuddy.petapp.model.Direccion" table="direccion" catalog="petbuddy" optimistic-lock="version">
+        <id name="idDireccion" type="java.lang.Integer">
+            <column name="ID_DIRECCION" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="persona" class="com.petbuddy.petapp.model.Persona" fetch="select">
+            <column name="ID_PERSONA" not-null="true" />
+        </many-to-one>
+        <property name="nombreDireccion" type="string">
+            <column name="NOMBRE_DIRECCION" length="500" />
+        </property>
+        <property name="distrito" type="string">
+            <column name="DISTRITO" length="50" />
+        </property>
+        <property name="provincia" type="string">
+            <column name="PROVINCIA" length="50" />
+        </property>
+        <property name="departamento" type="string">
+            <column name="DEPARTAMENTO" length="50" />
+        </property>
+        <property name="ubigeo" type="string">
+            <column name="UBIGEO" length="6" />
+        </property>
+        <property name="coordX" type="java.lang.Double">
+            <column name="COORD_X" precision="22" scale="0" />
+        </property>
+        <property name="coordY" type="java.lang.Double">
+            <column name="COORD_Y" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

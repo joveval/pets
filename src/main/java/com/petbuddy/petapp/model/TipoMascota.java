@@ -24,7 +24,6 @@ public class TipoMascota implements java.io.Serializable {
 	private Integer idTipoMascota;
 	private Raza raza;
 	private String descripcion;
-	private Set<Mascota> mascotas = new HashSet<Mascota>(0);
 
 	public TipoMascota() {
 	}
@@ -33,11 +32,6 @@ public class TipoMascota implements java.io.Serializable {
 		this.raza = raza;
 	}
 
-	public TipoMascota(Raza raza, String descripcion, Set<Mascota> mascotas) {
-		this.raza = raza;
-		this.descripcion = descripcion;
-		this.mascotas = mascotas;
-	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -70,13 +64,5 @@ public class TipoMascota implements java.io.Serializable {
 		this.descripcion = descripcion;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoMascota")
-	public Set<Mascota> getMascotas() {
-		return this.mascotas;
-	}
-
-	public void setMascotas(Set<Mascota> mascotas) {
-		this.mascotas = mascotas;
-	}
 
 }

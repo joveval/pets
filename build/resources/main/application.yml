@@ -40,5 +40,18 @@ petapp:
     domain: localhost
     skillPort: 8080
     skillPath: /servicio/
-    skillByIdPath: /servicio/getAll/
+    skillByIdPath: /servicio/getall/
   numberMostEndorsedSkills: 5
+  
+  
+######## CUSTOM PROPERTIES ##########
+hibernate:
+  mapping-locations: classpath:/com/petbuddy/petapp/model/*.hbm.xml
+#  packages-to-scan: com.khh.project
+#  annotated-packages: com.khh.project
+  properties:
+#    hibernate.connection.url
+    hibernate.dialect: org.hibernate.dialect.MySQLDialect
+    hibernate.show_sql: true
+    hibernate.hbm2ddl.auto: update
+    hibernate.current_session_context_class: thread

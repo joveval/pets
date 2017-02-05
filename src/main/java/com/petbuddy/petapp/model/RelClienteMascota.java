@@ -24,7 +24,6 @@ public class RelClienteMascota implements java.io.Serializable {
 	private Integer idRelClienteMascota;
 	private Cliente cliente;
 	private Mascota mascota;
-	private Set<Transaccion> transaccions = new HashSet<Transaccion>(0);
 
 	public RelClienteMascota() {
 	}
@@ -34,10 +33,12 @@ public class RelClienteMascota implements java.io.Serializable {
 		this.mascota = mascota;
 	}
 
-	public RelClienteMascota(Cliente cliente, Mascota mascota, Set<Transaccion> transaccions) {
+	
+
+	public RelClienteMascota(Integer idRelClienteMascota, Cliente cliente, Mascota mascota) {
+		this.idRelClienteMascota = idRelClienteMascota;
 		this.cliente = cliente;
 		this.mascota = mascota;
-		this.transaccions = transaccions;
 	}
 
 	@Id
@@ -72,13 +73,5 @@ public class RelClienteMascota implements java.io.Serializable {
 		this.mascota = mascota;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "relClienteMascota")
-	public Set<Transaccion> getTransaccions() {
-		return this.transaccions;
-	}
-
-	public void setTransaccions(Set<Transaccion> transaccions) {
-		this.transaccions = transaccions;
-	}
 
 }

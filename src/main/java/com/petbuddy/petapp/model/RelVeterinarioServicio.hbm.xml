@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-feb-2017 2:04:24 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.petbuddy.petapp.model.RelVeterinarioServicio" table="rel_veterinario_servicio" catalog="petbuddy" optimistic-lock="version">
+        <id name="idRelVeterinarioServicio" type="java.lang.Integer">
+            <column name="ID_REL_VETERINARIO_SERVICIO" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="servicio" class="com.petbuddy.petapp.model.Servicio" fetch="select">
+            <column name="ID_SERVICIO" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="veterinario" class="com.petbuddy.petapp.model.Veterinario" fetch="select">
+            <column name="ID_VETERINARIO" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

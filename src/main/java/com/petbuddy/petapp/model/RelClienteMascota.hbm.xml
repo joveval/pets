@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-feb-2017 2:04:24 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.petbuddy.petapp.model.RelClienteMascota" table="rel_cliente_mascota" catalog="petbuddy" optimistic-lock="version">
+        <id name="idRelClienteMascota" type="java.lang.Integer">
+            <column name="ID_REL_CLIENTE_MASCOTA" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cliente" class="com.petbuddy.petapp.model.Cliente" fetch="select">
+            <column name="ID_CLIENTE" not-null="true" />
+        </many-to-one>
+        <many-to-one name="mascota" class="com.petbuddy.petapp.model.Mascota" fetch="select">
+            <column name="ID_MASCOTA" not-null="true" />
+        </many-to-one>
+        <set name="transaccions" table="transaccion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_REL_CLIENTE_MASCOTA" not-null="true" />
+            </key>
+            <one-to-many class="com.petbuddy.petapp.model.Transaccion" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -24,23 +24,21 @@ public class Persona implements java.io.Serializable {
 	private String apPaterno;
 	private String apMaterno;
 	private String email;
-	private Set<Veterinario> veterinarios = new HashSet<Veterinario>(0);
-	private Set<Cliente> clientes = new HashSet<Cliente>(0);
-	private Set<Direccion> direccions = new HashSet<Direccion>(0);
-
+	
 	public Persona() {
 	}
 
-	public Persona(String nombres, String apPaterno, String apMaterno, String email, Set<Veterinario> veterinarios,
-			Set<Cliente> clientes, Set<Direccion> direccions) {
+	
+
+	public Persona(Integer idPersona, String nombres, String apPaterno, String apMaterno, String email) {
+		this.idPersona = idPersona;
 		this.nombres = nombres;
 		this.apPaterno = apPaterno;
 		this.apMaterno = apMaterno;
 		this.email = email;
-		this.veterinarios = veterinarios;
-		this.clientes = clientes;
-		this.direccions = direccions;
 	}
+
+
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -90,31 +88,6 @@ public class Persona implements java.io.Serializable {
 		this.email = email;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "persona")
-	public Set<Veterinario> getVeterinarios() {
-		return this.veterinarios;
-	}
 
-	public void setVeterinarios(Set<Veterinario> veterinarios) {
-		this.veterinarios = veterinarios;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "persona")
-	public Set<Cliente> getClientes() {
-		return this.clientes;
-	}
-
-	public void setClientes(Set<Cliente> clientes) {
-		this.clientes = clientes;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "persona")
-	public Set<Direccion> getDireccions() {
-		return this.direccions;
-	}
-
-	public void setDireccions(Set<Direccion> direccions) {
-		this.direccions = direccions;
-	}
 
 }

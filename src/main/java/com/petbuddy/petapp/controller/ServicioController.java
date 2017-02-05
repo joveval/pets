@@ -1,5 +1,6 @@
 package com.petbuddy.petapp.controller;
 
+import com.petbuddy.petapp.model.Cliente;
 import com.petbuddy.petapp.model.Servicio;
 import com.petbuddy.petapp.services.ServicioService;
 import com.petbuddy.petapp.util.Constant;
@@ -24,13 +25,23 @@ public class ServicioController {
     private ServicioService servicioService;
 
     @RequestMapping(value = Constant.REST_SERVICIO_GET_ALL, method = RequestMethod.GET)
-    public List<Servicio> getAllServicios() {
+    public List<Servicio> getAll() {
         return servicioService.getAll();
     }
 
     @RequestMapping(value = Constant.REST_SERVICIO_SAVE, method = RequestMethod.GET)
-    public String saveServicio() {
-        servicioService.getAll();
-        return "Success";
+    public Servicio save(@RequestBody Servicio servicio) {
+        return servicioService.save(servicio);
     }
+    
+    @RequestMapping(value = Constant.REST_SERVICIO_DELETE, method = RequestMethod.DELETE, consumes = "application/json")
+	public Integer delete(@RequestBody Servicio servicio) {
+		Integer response = 1;
+		try {
+			servicioService.remove(servicio);
+		} catch (Exception e) {
+			response = 0;
+		}
+		return response;
+	}
 }

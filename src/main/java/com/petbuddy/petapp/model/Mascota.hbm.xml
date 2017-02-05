@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-feb-2017 2:04:24 by Hibernate Tools 5.2.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.petbuddy.petapp.model.Mascota" table="mascota" catalog="petbuddy" optimistic-lock="version">
+        <id name="idMascota" type="java.lang.Integer">
+            <column name="ID_MASCOTA" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tipoMascota" class="com.petbuddy.petapp.model.TipoMascota" fetch="select">
+            <column name="ID_TIPO_MASCOTA" not-null="true" />
+        </many-to-one>
+        <property name="sexo" type="java.lang.Character">
+            <column name="SEXO" length="1" />
+        </property>
+        <property name="birthday" type="date">
+            <column name="BIRTHDAY" length="10" />
+        </property>
+        <set name="expedienteMedicos" table="expediente_medico" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_MASCOTA" not-null="true" />
+            </key>
+            <one-to-many class="com.petbuddy.petapp.model.ExpedienteMedico" />
+        </set>
+        <set name="relClienteMascotas" table="rel_cliente_mascota" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_MASCOTA" not-null="true" />
+            </key>
+            <one-to-many class="com.petbuddy.petapp.model.RelClienteMascota" />
+        </set>
+    </class>
+</hibernate-mapping>
